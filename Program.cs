@@ -1,4 +1,5 @@
 ﻿using System;
+using Lain_Bootleg_DUX.GameContent;
 
 namespace Lain_Bootleg_DUX
 {
@@ -7,8 +8,8 @@ namespace Lain_Bootleg_DUX
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1())
-                game.Run();
+            using (var scene = new LainInterfaceScene())
+                scene.Run();
         }
     }
 }
