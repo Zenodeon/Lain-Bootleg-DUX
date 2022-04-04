@@ -8,6 +8,8 @@ namespace Lain_Bootleg_DUX
         [STAThread]
         static void Main()
         {
+            DLog.Instantiate();
+
             using (var scene = new LainInterfaceScene())
                 scene.Run();
         }
