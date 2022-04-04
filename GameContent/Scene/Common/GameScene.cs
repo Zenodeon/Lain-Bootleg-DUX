@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System;
 
 namespace Lain_Bootleg_DUX.GameContent
 {
@@ -14,10 +15,21 @@ namespace Lain_Bootleg_DUX.GameContent
         public GameScene()
         {
             _graphics = new GraphicsDeviceManager(this);
+            
+            Window.AllowUserResizing = true;
+            Window.AllowAltF4 = true;
+            Window.ClientSizeChanged += OnWindowSizeChange;
+
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
+        private void OnWindowSizeChange(object sender, EventArgs e)
+        {
+            Window.BeginScreenDeviceChange(false);
+        }
+
+        #region PassThrough
         public virtual void OnInitialize() { }
         protected override void Initialize()
         {
@@ -47,5 +59,7 @@ namespace Lain_Bootleg_DUX.GameContent
             OnDraw(gameTime);
             base.Draw(gameTime);
         }
+        #endregion
+
     }
 }
