@@ -28,4 +28,7 @@
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
   </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rd /S /Q &quot;$(TargetDir)Asset\&quot;&#xD;&#xA;XCOPY &quot;$(SolutionDir)Asset&quot; &quot;$(TargetDir)Asset\&quot; /S /Y /Q" />
+  </Target>
 </Project>
